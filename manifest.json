@@ -19,32 +19,42 @@
 	"sap.card": {
 		"type": "Table",
         "designtime": "dt/configuration",
-		"header": {
-			"title": "Sales Orders for Key Accounts",
-			"subTitle": "Today",
-			"status": {
-				"text": "{headerData/statusText}"
+		"configuration" : {
+			"destinations": {
+				"ES5": {
+					"name" : "ES5"
+				}
 			}
+		},
+		"header": {
+			"title": "Team Contacts",
+			"subTitle": "Finance"
+		},
+		"data": {
+			"request" : {
+				"url" : "{{destinations.ES5}}/sap/opu/odata/iwbep/GWSAMPLE_BASIC/ContactSet?$top=10",
+				"withCredentials": true
+			},
+			"path" : "/d/results/"
 		},
 		"content": {
 			"row": {
-				"columns": [{
-						"title": "Sales Order",
-						"value": "{salesOrder}",
-						"identifier": true
+				"columns": [
+					{
+						"title": "First Name",
+						"value": "{FirstName}"
 					},
 					{
-						"title": "Customer",
-						"value": "{customerName}"
+						"title": "Last Name",
+						"value": "{LastName}"
 					},
 					{
-						"title": "Net Amount",
-						"value": "{netAmount}"
+						"title": "Mobile",
+						"value": "{PhoneNumber}"
 					},
 					{
-						"title": "Status",
-						"value": "{status}",
-						"state": "{statusState}"
+						"title": "Email",
+						"value": "{EmailAddress}"
 					}
 				]
 			}
