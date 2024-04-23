@@ -1,0 +1,56 @@
+{
+	"_version": "1.15.0",
+	"sap.app": {
+		"id": "ns.ern_ui_integration_table_card",
+		"type": "card",
+		"title": "Ernox Table Card",
+		"subTitle": "Demo Table Card",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+        "deviceTypes": {"desktop": true, "phone": true, "tablet": true},
+		"icons": {
+			"icon": "sap-icon://table-view"
+		}
+	},
+	"sap.card": {
+		"type": "Table",
+        "designtime": "dt/configuration",
+		"header": {
+			"title": "Sales Orders for Key Accounts",
+			"subTitle": "Today",
+			"status": {
+				"text": "{headerData/statusText}"
+			}
+		},
+		"content": {
+			"row": {
+				"columns": [{
+						"title": "Sales Order",
+						"value": "{salesOrder}",
+						"identifier": true
+					},
+					{
+						"title": "Customer",
+						"value": "{customerName}"
+					},
+					{
+						"title": "Net Amount",
+						"value": "{netAmount}"
+					},
+					{
+						"title": "Status",
+						"value": "{status}",
+						"state": "{statusState}"
+					}
+				]
+			}
+		}
+	},
+    "sap.platform.mobilecards": {
+        "compatible": false
+    }
+}
